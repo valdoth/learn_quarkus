@@ -23,7 +23,7 @@ public class ArtistsResource {
   @GET
   @Produces(MediaType.APPLICATION_JSON)
   public Response getAllArtists() {
-    System.out.println(artists);
+    // System.out.println(artists);
     return Response.ok(artists).build();
   }
 
