@@ -17,13 +17,15 @@ public class ArtistsResource {
     new Artist().id(UUID.randomUUID()).firstName("John").lastName("Lennon"),
     new Artist().id(UUID.randomUUID()).firstName("Paul").lastName("McCartney"),
     new Artist().id(UUID.randomUUID()).firstName("George").lastName("Harrison"),
-    new Artist().id(UUID.randomUUID()).firstName("Ringo").lastName("Starr")
+    new Artist().id(UUID.randomUUID()).firstName("Ringo").lastName("Starr"),
+    new Artist().id(UUID.randomUUID()).firstName("Marie").lastName("LeClair"),
+    new Artist().id(UUID.randomUUID()).firstName("Katherine").lastName("Dupond")
   );
 
   @GET
   @Produces(MediaType.APPLICATION_JSON)
   public Response getAllArtists() {
-    // System.out.println(artists);
+    System.out.println(artists);
     return Response.ok(artists).build();
   }
 
