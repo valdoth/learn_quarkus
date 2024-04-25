@@ -10,6 +10,7 @@ import jakarta.ws.rs.core.Response;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 
 @Path("/artists")
@@ -42,9 +43,7 @@ public class ArtistsResource {
   @Path("/{id}")
   @Produces(MediaType.APPLICATION_JSON)
   public Response deleteArtistById(@PathParam("id") UUID id) {
-    Artist artistDeleted = artists.stream().filter(artist -> artist.getId().equals(id)).findFirst().orElse(new Artist("", ""));
-    return Response.ok(artists.stream().filter(artist -> artist.getFirstName().equals(artistDeleted.getFirstName()) && artist.getLastName().equals(artistDeleted.getLastName()))).build();
-
+    return Response.ok(artists.stream().filter(artist -> !artist.getId().equals(id)).collect(Collectors.toList())).build();
   }
     
   @GET
