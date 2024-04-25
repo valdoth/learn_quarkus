@@ -1,5 +1,8 @@
 package org.valdo;
 
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
+@Schema(name = "Movie", description = "movie representation")
 public class Movie {
     
     private Long id;
