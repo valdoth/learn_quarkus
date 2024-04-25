@@ -21,7 +21,7 @@ import jakarta.ws.rs.core.MediaType;
 @Path("/movies")
 public class MovieResource {
 
-    public static List<Movie> movies = new ArrayList<>();
+    public static List<Movie> movies = new ArrayList<Movie>();
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
