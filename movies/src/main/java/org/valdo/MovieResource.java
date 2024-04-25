@@ -62,7 +62,6 @@ public class MovieResource {
     @DELETE
     @Path("{id}")
     @Produces(MediaType.TEXT_PLAIN)
-    @Consumes(MediaType.TEXT_PLAIN)
     public Response deleteMovie(@PathParam("id") Long id) {
         Optional<Movie> movieToDelete = movies.stream().filter(movie -> movie.getId().equals(id)).findFirst();
         boolean removed = false;
