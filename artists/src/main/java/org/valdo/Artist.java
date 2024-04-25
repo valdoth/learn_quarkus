@@ -15,6 +15,12 @@ public class Artist {
   @JsonbProperty("last_name")
   private String lastName;
 
+  Artist() {}
+
+  Artist(String firstName, String lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
 
   public UUID getId() {
     return id;

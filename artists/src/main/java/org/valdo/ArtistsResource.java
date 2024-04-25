@@ -1,11 +1,13 @@
 package org.valdo;
 
+import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+
 import java.util.List;
 import java.util.UUID;
 
@@ -34,6 +36,15 @@ public class ArtistsResource {
   @Produces(MediaType.APPLICATION_JSON)
   public Response getArtistById(@PathParam("id") UUID id) {
     return Response.ok(artists.stream().filter(artist -> artist.getId().equals(id)).findFirst()).build();
+  }
+
+  @DELETE
+  @Path("/{id}")
+  @Produces(MediaType.APPLICATION_JSON)
+  public Response deleteArtistById(@PathParam("id") UUID id) {
+    Artist artistDeleted = artists.stream().filter(artist -> artist.getId().equals(id)).findFirst().orElse(new Artist("", ""));
+    return Response.ok(artists.stream().filter(artist -> artist.getFirstName().equals(artistDeleted.getFirstName()) && artist.getLastName().equals(artistDeleted.getLastName()))).build();
+
   }
     
   @GET
